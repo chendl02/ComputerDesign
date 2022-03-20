@@ -9,11 +9,11 @@ module IR (clk, rst,  im_dout, instr);
    output [31:0] instr;
    
    reg [31:0] instr;
-               //posedge clk or posedge rst
-   always @(*) begin
+               
+   always @(posedge clk or posedge rst) begin
       instr <= im_dout;
-      if ( rst ) 
-         instr <= 0;
+      //if ( rst ) 
+    //     instr <= 0;
      
          
    end // end always

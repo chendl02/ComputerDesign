@@ -15,7 +15,7 @@ module PC( clk, rst, NPC, PC );
    always @(posedge clk or posedge rst) begin
       PC <= NPC; 
       if ( rst ) 
-         PC <= 32'h0000_3000;   
+         PC <= 32'h0000_0000;   
       //else if ( PCWr ) 
       //$display("PC = 0x%8X, IR = 0x%8X", U_MIPS.U_PC.PC, U_MIPS.instr );    
    end // end always

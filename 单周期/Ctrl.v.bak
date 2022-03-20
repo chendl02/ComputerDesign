@@ -31,7 +31,7 @@ output [1:0]EXTOp;
  wire I_beq=~Op[5]&&~Op[4]&&~Op[3]&&Op[2]&&~Op[1]&&~Op[0];//000100
 
  wire I_lui=~Op[5]&&~Op[4]&&Op[3]&&Op[2]&&Op[1]&&Op[0];//001111
- wire I_and=R_type&&Func[5]&&~Func[4]&&~Func[3]&&Func[2]&&~Func[1]&&~Func[0];//100100
+ wire I_add=R_type&&Func[5]&&~Func[4]&&~Func[3]&&Func[2]&&~Func[1]&&~Func[0];//100100
  wire I_or=R_type&&Func[5]&&~Func[4]&&~Func[3]&&Func[2]&&~Func[1]&&Func[0];//100101
  wire I_sll=R_type&&~Func[5]&&~Func[4]&&~Func[3]&&~Func[2]&&~Func[1]&&~Func[0];//000000
  wire I_srl=R_type&&~Func[5]&&~Func[4]&&~Func[3]&&~Func[2]&&Func[1]&&~Func[0];//000010
