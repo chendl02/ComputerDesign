@@ -1,0 +1,21 @@
+lui指令
+	无需alu运算，extend模块已扩展完毕，在alu中只需C=B
+sll指令
+	增加了一个多选器，增加ALUSrc2信号，mips对应进行更改
+srl指令
+	
+sra指令
+
+bne指令
+	已实现
+j指令
+	感觉不用ALU（？
+jal指令
+	增加寄存器读入多选器，jal时固定读入第32个寄存器$31
+jr指令
+	NPCOp位数不够，增加1位，NPC模块增加JR，由RD1传进数据
+
+slti指令
+	ALUSrc1增加slti信号
+addi指令
+	增加RegW

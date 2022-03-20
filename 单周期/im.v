@@ -1,0 +1,12 @@
+// @Time    : 2022.3.20
+// @Author  : chendelin
+module im_4k( addr, dout );
+    
+    input [9:0] addr;
+    input [31:0] dout;
+    
+    reg [31:0] imem[1023:0];
+    
+    assign dout = imem[addr];
+    
+endmodule    
