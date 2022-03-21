@@ -49,7 +49,7 @@ module mips( clk, rst );
    // wire IRWr;
     wire [31:0]im_dout;
     wire [31:0]instr;
-
+    wire jal;
    assign Op = instr[31:26];
    assign Funct = instr[5:0];
    assign rs = instr[25:21];
@@ -76,7 +76,7 @@ module mips( clk, rst );
 //RF?????
    RF U_RF (
       .A1(rs), .A2(rt), .A3(A3), .WD(WD), .clk(clk), 
-      .RFWr(RFWr), .RD1(RD1), .RD2(RD2)
+      .RFWr(RFWr), .RD1(RD1), .RD2(RD2),.jal(jal)
    );
 //DM?????
    dm_4k U_DM(
@@ -105,7 +105,8 @@ module mips( clk, rst );
     .RegDst(RegDst),
     .ALUSrc1(ALUSrc1),
     .ALUSrc2(ALUSrc2),
-    .MemToReg(MemToReg)
+    .MemToReg(MemToReg),
+    .jal(jal)
     );
 //MUX ?????
 //1.RegDst MUX

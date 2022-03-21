@@ -1,14 +1,14 @@
 // @Time    : 2022.3.20
 // @Author  : chendelin
 //`include "global_def.v"
-module RF( A1, A2, A3, WD, clk, RFWr, RD1, RD2 );
+module RF( A1, A2, A3, WD, clk, RFWr, RD1, RD2 ,jal);
     
    input  [4:0]  A1, A2, A3;
    input  [31:0] WD;
    input         clk;
    input         RFWr;
    output [31:0] RD1, RD2;
-   
+   input jal;
    reg [31:0] rf[31:0];
    
    integer i;
@@ -18,7 +18,9 @@ module RF( A1, A2, A3, WD, clk, RFWr, RD1, RD2 );
    end
    
    always @(posedge clk) begin
-      if (RFWr)
+      if(RFWr&&jal)
+	 rf[31]<=WD;
+      else if (RFWr)
          rf[A3] <= WD;
       
          $display("R[00-07]=%8X, %8X, %8X, %8X, %8X, %8X, %8X, %8X", 0, rf[1], rf[2], rf[3], rf[4], rf[5], rf[6], rf[7]);

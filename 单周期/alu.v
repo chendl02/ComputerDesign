@@ -15,7 +15,7 @@ module alu (A, B, ALUOp, C, Zero);
          `ALUOp_SUBU: C = A - B;
          `ALUOp_ADD : C = $signed(A) + $signed(B);
          `ALUOp_SUB : C = $signed(A) - $signed(B);
-         `ALUOp_SLT : C = ($signed(B) < $signed(B))? 32'd1:32'd0;
+         `ALUOp_SLT : C = ($signed(A) < $signed(B))? 32'd1:32'd0;
          `ALUOp_SLTI: C = ($signed(A) < $signed(B))? 32'd1:32'd0;
          `ALUOp_EQL: C = A-B;
          `ALUOp_BNE: C = A-B;

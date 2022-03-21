@@ -5,13 +5,13 @@ module Ctrl(Op,Func,
             RegDst,RegW,
             MemW,MemToReg,
             ALUSrc1,ALUSrc2,ALUOp,
-            EXTOp
+            EXTOp,jal
             );
 input [5:0]Op;
 input [5:0]Func;
 
 output  [2:0]NPCOp;
-
+output jal;
 output [1:0]RegDst;
 output RegW;
 output MemW;
@@ -53,8 +53,8 @@ assign NPCOp[2]=I_jr;
 //Reg
 assign RegDst[0] = R_type; 
 assign RegDst[1] = I_jal;
-assign RegW = R_type|I_lw|I_ori|I_addi|I_lui|I_slti;  
-
+assign RegW = R_type|I_lw|I_ori|I_addi|I_lui|I_slti|I_jal;  
+assign jal=I_jal;
 //Mem
 assign MemW = I_sw;  //sw
 assign MemToReg[0] = I_lw;  //lw

@@ -31,7 +31,7 @@ module mips( clk, rst );
    wire [15:0] Imm16;
    wire [31:0] Imm32;
 //ALU
-   //wire [31:0]ALUdin1;
+   wire [31:0]ALUdin1;
    wire [31:0]ALUdin2;
    wire [31:0]ALUdout;
    wire Zero;
@@ -88,7 +88,7 @@ module mips( clk, rst );
    );
 //ALU?????
    alu U_ALU(
-      .A(RD1), .B(ALUdin2), .ALUOp(ALUOp), .C(ALUdout), .Zero(Zero)
+      .A(ALUdin1), .B(ALUdin2), .ALUOp(ALUOp), .C(ALUdout), .Zero(Zero)
    );
 //IR?????
    IR U_IR(
